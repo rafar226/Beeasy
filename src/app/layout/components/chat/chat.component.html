@@ -1,0 +1,11 @@
+<p>Chat embebido para el cliente: <strong>{{ clienteId }}</strong></p>
+
+    <input [(ngModel)]="userQuery" placeholder="Escribí tu pregunta" />
+    <button (click)="sendQuery()">Enviar</button>
+
+    <div>
+      <h3>Resultados relevantes:</h3>
+      <ul>
+         {{currentResponse()}}
+      </ul>
+    </div>

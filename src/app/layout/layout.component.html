@@ -1,0 +1,35 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" [opened]="true" class="sidenav"
+    (openedChange)="onSidenavChange($event)">
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()" aria-label="Toggle sidenav">
+        <mat-icon>menu_open</mat-icon>
+      </button>
+      <!-- <span>Menú</span> -->
+    </mat-toolbar>
+
+    <mat-nav-list>
+      @for (item of items; track item.description) {
+        <a mat-list-item routerLink="/{{item.link}}" (click)="closeIfHandset()" class="item">
+          <mat-icon matListIcon>{{item.icon}}</mat-icon>
+          <span class="item-label">{{item.description}}</span>
+        </a>
+      }
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button *ngIf="!isOpenSiderbar()" mat-icon-button (click)="sidenav.toggle()" aria-label="Toggle sidenav"
+        (click)="onSidenavChange(false)">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Beeasy</span>
+    </mat-toolbar>
+
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

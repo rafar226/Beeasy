@@ -1,0 +1,12 @@
+<div>
+<h3 class="title">Configuracion</h3>
+
+    <div class="item-container">
+        @for (item of items; track item.name) {
+            <div class="card" (click)="open()">
+                <span> {{item.description}} </span>
+            </div>
+        }
+    </div>
+
+</div>

@@ -1,0 +1,77 @@
+.modal-header {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    min-height: 65vh;
+    max-height: 65%;
+    border-radius: 15px;
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.icon-close {
+    margin: 15px;
+}
+
+.files-list {
+    display: flex;
+    width: 70%;
+    border-right: 1px solid grey;
+    height: 100%;
+    min-height: inherit;
+    justify-content: center;
+}
+
+.upload-section {
+    display: flex;
+    width: 30%;
+    // border: 1px solid grey;
+    height: 100%;
+    min-height: inherit;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    border: 1px solid #8E09CF;
+    width: 200px;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+    cursor: pointer;
+    color: #8E09CF;
+    font-weight: 300;
+}
+
+.item-container {
+    width: 100%;
+    padding: 15px;
+    display: flex;
+}
+
+.upload-button {
+  background-color: #8E09CF;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background-color: #9906e2;
+  }
+}

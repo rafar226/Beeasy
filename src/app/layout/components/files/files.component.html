@@ -1,0 +1,26 @@
+<div class="modal-header">
+    <span id="welcome">Mis archivos</span>
+    <mat-icon (click)="dismissModal()">close</mat-icon>
+</div>
+<div class="modal-body">
+    <div class="container">
+
+        <section class="files-list">
+            @for (item of files; track item.name) {
+                <div class="card">
+                    <span> {{item.description}} </span>
+                </div>
+            }
+        </section>
+
+        <section class="upload-section">
+            <input type="file" id="fileUpload" hidden 
+             #fileInput
+            (change)="onFileSelected($event)" />
+            <button class="upload-button" (click)="triggerFileInput()">📁 Subir archivo</button>
+        </section>
+
+
+        <button class="btn" (click)="closeModal()"> Seleccionar </button>
+    </div>
+</div>
