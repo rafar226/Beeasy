@@ -4,7 +4,6 @@
 
 @include mat.core();
 
-// Paletas de colores principales
 $custom-primary: mat.m2-define-palette((
   50: #e0f2f1,
   100: #b2dfdb,
@@ -42,7 +41,6 @@ $primary-palette: $custom-primary;
 // Violeta	mat.$m2-deep-purple-palette
 
 
-// Tema de la app
 $app-theme: mat.m2-define-light-theme((
   color: (
     primary: $primary-palette,
@@ -55,6 +53,5 @@ body, html {
   font-family: 'Roboto', sans-serif;
 }
 
-// Aplicar el tema globalmente
 @include mat.all-component-themes($app-theme);
 

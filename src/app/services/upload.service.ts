@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class UploadService {
-  private apiUrl = 'http://localhost:3000/upload'; // Cambiar si tu backend usa otro puerto
+  private apiUrl = 'http://localhost:3000/upload';
 
   constructor(private http: HttpClient) {}
 

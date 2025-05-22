@@ -60,8 +60,8 @@ export class FilesComponent {
     if (file) {
       console.log('Archivo seleccionado:', file.name);
       this.uploadService.uploadFile(file).subscribe({
-        next: (res) => console.log('✅ Subida exitosa:', res),
-        error: (err) => console.error('❌ Error al subir:', err),
+        next: (res) => console.log('Subida exitosa:', res),
+        error: (err) => console.error('Error al subir:', err),
       });
     }
   }
