@@ -79,6 +79,11 @@ export class LayoutComponent {
         link: ''
       },
       {
+        icon: 'chat',
+        description: 'Prueba tu chat',
+        link: 'mi-chat'
+      },
+      {
         icon: 'person',
         description: 'Cuenta',
         link: ''

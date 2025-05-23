@@ -20,7 +20,8 @@ export class BeeasyChatComponent {
   chatHistory = signal<{ role: 'user' | 'assistant', content: string }[]>([]);
   userQuery = '';
   results: any[] = [];
-
+  id: string = 'pruebaIdUser'; // cambiar por id de usuario cuadno tenga auth
+  
   constructor() {
     effect(() => {
       localStorage.setItem('chatHistory', JSON.stringify(this.chatHistory()));
@@ -59,7 +60,7 @@ export class BeeasyChatComponent {
     this.isTyping.set(true);
     this.scrollToBottom();
 
-    this.chatService.queryChat(query, this.chatHistory()).subscribe(
+    this.chatService.queryChat(query, this.chatHistory(), this.id).subscribe(
       (res: any) => {
 
         if (res.answer) {

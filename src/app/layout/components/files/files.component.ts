@@ -18,6 +18,8 @@ export class FilesComponent {
   
   files: any[] = [];
 
+  id: string = 'pruebaIdUser'; // cambiar por id de usuario cuadno tenga auth
+
   constructor(
     private activeModal: NgbActiveModal,
     // private modalService: NgbModal,
@@ -59,7 +61,7 @@ export class FilesComponent {
     const file = target.files?.[0];
     if (file) {
       console.log('Archivo seleccionado:', file.name);
-      this.uploadService.uploadFile(file).subscribe({
+      this.uploadService.uploadFile(file, this.id).subscribe({
         next: (res) => console.log('Subida exitosa:', res),
         error: (err) => console.error('Error al subir:', err),
       });

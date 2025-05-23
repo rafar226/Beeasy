@@ -7,10 +7,10 @@ export class UploadService {
 
   constructor(private http: HttpClient) {}
 
-  uploadFile(file: File) {
+  uploadFile(file: File, id: string) {
     const formData = new FormData();
     formData.append('file', file);
-    console.log(file, formData)
+    formData.append('userId', id);
     return this.http.post(this.apiUrl, formData);
   }
 }

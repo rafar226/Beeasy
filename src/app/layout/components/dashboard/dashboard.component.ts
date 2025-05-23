@@ -5,7 +5,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   selector: 'dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-   schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class DashboardComponent {
   constructor() {}

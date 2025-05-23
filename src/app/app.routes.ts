@@ -14,6 +14,14 @@ export const routes: Routes = [
         loadComponent: () => import('./layout/components/settings/settings.component').then(c => c.SettingsComponent)
       },
       {
+        path: 'mi-chat',
+        loadComponent: () => import('./layout/components/prueba-chat/prueba-chat.component').then(c => c.PruebaChatComponent)
+      },
+      {
+        path: 'login',
+        loadComponent: () => import('./components/login/login.component').then(c => c.LoginComponent)
+      },
+      {
         path: '',
         redirectTo: 'dashboard',
         pathMatch: 'full'

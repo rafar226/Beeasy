@@ -1,0 +1,24 @@
+<div style="max-width: 400px; margin: auto; padding: 2rem">
+      <h2>{{ isLogin() ? 'Iniciar sesión' : 'Crear cuenta' }}</h2>
+      <form (ngSubmit)="handleSubmit()" #authForm="ngForm">
+        <mat-form-field appearance="outline" style="width: 100%">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" [(ngModel)]="email" name="email" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="width: 100%">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" [(ngModel)]="password" name="password" required />
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" style="width: 100%" type="submit">
+          {{ isLogin() ? 'Ingresar' : 'Registrarme' }}
+        </button>
+
+        <button mat-button color="accent" style="margin-top: 1rem; width: 100%" type="button" (click)="toggleMode()">
+          {{ isLogin() ? 'Crear cuenta' : 'Ya tengo cuenta' }}
+        </button>
+
+        <div *ngIf="error" style="color: red; margin-top: 1rem">{{ error }}</div>
+      </form>
+    </div>
