@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { UserService } from './user.service';
 import { UserData } from './user.interface';
+import { onAuthStateChanged } from 'firebase/auth';
 
 @Component({
   standalone: true,
@@ -25,6 +26,14 @@ export class LoginComponent {
   error: string | null = null;
 
   constructor(private router: Router) {}
+
+    ngOnInit(): void {
+      onAuthStateChanged(this.auth, (user) => {
+        if (user) {
+          this.router.navigate(['/dashboard']);
+        }
+      });
+    }
 
   toggleMode() {
     this.isLogin.update((val) => !val);
@@ -47,7 +56,10 @@ export class LoginComponent {
           lastName: 'APELLIDO DEL USUARIO', // AGREGAR EN INPUT,
           conversations: [],
           isPaidCliente: false,
-          files: []
+          files: [],
+          defaultTone: '',
+          rolePrompt: '', 
+          defaultInstructions: [] 
         };
 
         await this.userService.createOrUpdateUser(userData);

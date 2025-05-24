@@ -1,0 +1,45 @@
+.modal-header {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    min-height: 65vh;
+    max-height: 65%;
+    border-radius: 15px;
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.icon-close {
+    margin: 15px;
+}
+
+::ng-deep .cdk-overlay-container {
+z-index: 1055;
+}
+
+form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    mat-form-field {
+        width: 46%;
+        margin: 2%;
+    }
+
+    div {
+        width: 100%;
+    }
+}
+
+.save-button {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}

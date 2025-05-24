@@ -1,0 +1,40 @@
+<div class="modal-header">
+    <span id="welcome">Mis archivos</span>
+    <mat-icon (click)="dismissModal()">close</mat-icon>
+</div>
+<div class="modal-body">
+    <div class="container">
+        <form [formGroup]="configForm" (ngSubmit)="saveConfig()">
+        <mat-form-field appearance="outline" class="w-full mb-4">
+        <mat-label>Tono por defecto</mat-label>
+        <mat-select formControlName="defaultTone">
+            <mat-option *ngFor="let tone of defaultTones" [value]="tone">
+            {{ tone }}
+            </mat-option>
+        </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-full mb-4">
+            <mat-label>Rol del asistente</mat-label>
+            <input matInput formControlName="rolePrompt" placeholder="Ej: Eres un experto legal">
+        </mat-form-field>
+
+        <div formArrayName="defaultInstructions">
+            <div *ngFor="let instruction of defaultInstructions.controls; let i = index">
+            <mat-form-field appearance="outline" class="w-full mb-2">
+                <mat-label>Instrucción #{{i + 1}}</mat-label>
+                <input matInput [formControlName]="i">
+                <button mat-icon-button color="warn" (click)="removeInstruction(i)" type="button">✖</button>
+            </mat-form-field>
+            </div>
+
+            <button mat-raised-button color="accent" type="button" (click)="addInstruction()">
+                <mat-icon>add</mat-icon>
+                Agregar instrucción
+            </button>
+        </div>
+
+        <button mat-raised-button color="primary" type="submit" class="save-button">Guardar configuración</button>
+        </form>
+    </div>
+</div>

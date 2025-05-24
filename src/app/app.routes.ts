@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
   {
@@ -7,15 +8,23 @@ export const routes: Routes = [
     children: [
       {
         path: 'dashboard',
+        canActivate: [authGuard],
         loadComponent: () => import('./layout/components/dashboard/dashboard.component').then(c => c.DashboardComponent)
       },
       {
         path: 'settings',
+        canActivate: [authGuard],
         loadComponent: () => import('./layout/components/settings/settings.component').then(c => c.SettingsComponent)
       },
       {
         path: 'mi-chat',
+        canActivate: [authGuard],
         loadComponent: () => import('./layout/components/prueba-chat/prueba-chat.component').then(c => c.PruebaChatComponent)
+      },
+      {
+        path: 'context',
+        canActivate: [authGuard],
+        loadComponent: () => import('./layout/components/context-setting/context-setting.component').then(c => c.ContextSettingComponent)
       },
       {
         path: 'login',

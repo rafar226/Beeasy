@@ -1,12 +1,14 @@
-import { Auth, authState } from '@angular/fire/auth';
+import { Auth, authState, signOut } from '@angular/fire/auth';
 import { inject, Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Firestore, doc, getDoc, setDoc } from '@angular/fire/firestore';
 import { UserData } from './user.interface';
+import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
     firestore = inject(Firestore);
+    private router = inject(Router);
     userId$: Observable<string | null>;
 
   constructor(private auth: Auth) {
@@ -28,5 +30,11 @@ async getUser(id: string): Promise<UserData | null> {
       return snap.data() as UserData;
     }
     return null;
+  }
+
+  logout() {
+    return signOut(this.auth).then(() => {
+      this.router.navigate(['/login']);
+    });
   }
 }

@@ -26,14 +26,14 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => getAuth()),
-    provideFirestore(() => {
-      const app = getApp(); // Usa la instancia ya inicializada
-      const firestore = initializeFirestore(app, {
-        localCache: persistentLocalCache({ tabManager: persistentMultipleTabManager() })
-      });
-      return firestore;
-    }),
-    // provideFirestore(() => getFirestore()), // ✅ ya usa la app inicializada
+    // provideFirestore(() => {
+    //   const app = getApp(); // Usa la instancia ya inicializada
+    //   const firestore = initializeFirestore(app, {
+    //     localCache: persistentLocalCache({ tabManager: persistentMultipleTabManager() })
+    //   });
+    //   return firestore;
+    // }),
+    provideFirestore(() => getFirestore()), // ✅ ya usa la app inicializada
     provideStorage(() => getStorage()),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),

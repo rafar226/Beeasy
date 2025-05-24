@@ -3,7 +3,7 @@
 
     <div class="item-container">
         @for (item of items; track item.name) {
-            <div class="card" (click)="open()">
+            <div class="card" (click)="open(item.name)">
                 <span> {{item.description}} </span>
             </div>
         }

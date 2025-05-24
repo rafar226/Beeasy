@@ -11,6 +11,7 @@ import { Observable, map, shareReplay, take } from 'rxjs';
 import { LayoutModule } from '@angular/cdk/layout';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { LayoutItem } from './layout.interface';
+import { UserService } from '../components/login/user.service';
 @Component({
   standalone: true,
   selector: 'app-layout',
@@ -30,6 +31,7 @@ import { LayoutItem } from './layout.interface';
    providers: [BreakpointObserver]
 })
 export class LayoutComponent {
+  userService = inject(UserService);
   @ViewChild('sidenav') sidenav: any;
   isHandset$: Observable<boolean>;
   breakpointObserver = inject(BreakpointObserver);
@@ -93,6 +95,10 @@ export class LayoutComponent {
 
   onSidenavChange(open: boolean): void {
     this.isOpenSiderbar.set(open);
+  }
+
+  onLogout() {
+    this.userService.logout();
   }
 
 }
